@@ -1,0 +1,17 @@
+#flask files
+instance/
+flask_session/
+
+#virtual env
+venv/
+
+#python bytecode
+__pycache__.
+*.pyc 
+
+#os 
+.DS_store
+
+#editor
+.idea/
+.vscode/ 

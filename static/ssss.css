@@ -1,0 +1,221 @@
+:root{
+    --color-header: rgb(26, 118, 240);
+    --color-green: #2dd10d;
+    --color-red: #cc1a1a;
+    --color-white: #fff;
+    --color-dark-blue: #094b81;
+    --color-line: rgb(12, 103, 221);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* BODY */
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    flex: 1;
+}
+/* INDEX CSS */
+.d-flex{
+    display: flex;
+}
+
+.flex-row{
+    flex-direction: row;
+}
+
+.flex-culomn{
+    flex-direction: column;
+}
+
+.tables ul li{
+    list-style: none;
+    
+}
+
+.tables ul li a{
+    text-decoration: none;
+}
+/* list and links styling */
+.list-style-none{
+    list-style: none;
+}
+
+.text-decor-none{
+    text-decoration: none;
+}
+
+/* .text-center{
+    text-align: center;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.justify-center{
+    justify-content: center;
+} */
+
+/* Borders */
+.my-border{
+    border: 1px solid;
+}
+
+.border-bottom-blue{
+    border-bottom: 10px solid var(--color-line);
+}
+
+.available{
+    border-color: var(--color-green);
+    color: var(--color-green);
+}
+
+.with-order{
+    border-color: var(--color-red);
+    color: var(--color-red);
+}
+
+.gap-sm{
+    gap: 15px;
+}
+
+/* fonts and texts */
+.font-size-m{
+    font-size: 1.5rem;
+}
+.f-size-l{
+    font-size: 2rem;
+}
+
+.bold-m{
+    font-weight: 600;
+}
+
+
+
+.f-family-sans{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.color-header{
+    color: var(--color-header);
+}
+
+/* buttons */
+.add{
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+.btn-f-family{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-f-size-l{
+    font-size: 1rem;
+}
+
+.btn-f-size-sm{
+    font-size: 0.80rem;
+}
+
+/* margins */
+.margin-l{
+    margin: 40px;
+}
+
+.margin-m{
+    margin: 20px;
+}
+
+.margin-xsm{
+    margin: 5px;
+}
+
+.mt-sm{
+    margin-top: 10px;
+}
+
+.mt-m{
+    margin-top: 20px;
+}
+
+.mt-l{
+    margin-top: 40px;
+}
+
+/* paddings */
+.padding-xsm{
+    padding: 0.8rem;
+}
+
+.padding-sm{
+    padding: 1rem;
+}
+
+.padding-m{
+    padding: 1.2rem;
+}
+
+.padding-8{
+    padding: 8px;
+}
+
+.padding-17{
+    padding: 17px;
+}
+/* ENDOF INDEX STYLE */
+
+/* FOOTER STYLER */
+ footer{
+    bottom: 0;
+    position: -webkit-sticky;
+    background-color: #212529;
+ }
+
+ footer section {
+    font-size: 2rem;
+    font-weight: 600;
+    color: whitesmoke;
+ } 
+
+ .wrap{
+    flex-wrap: wrap;
+ }
+
+/* Default Light Mode */
+body.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+#theme-toggle {
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode #theme-toggle {
+    background-color: #444;
+    color: #fff;
+}
+
+.min-height-l{
+    min-height: 300px;
+}

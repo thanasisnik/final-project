@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+    <div>
+        <section class="f-size-l f-family-sans margin-m text-center color-header border-bottom-blue">Settings</section>
+        
+        <!-- button to change theme! -->
+        <button id="theme-toggle" class="margin-m padding-xsm btn btn-outline-primary">
+            <span id="theme-icon">☀️</span> Mode
+        </button>
+
+
+        <!-- change user password -->
+        <div>
+            <form action="/settings" method="POST">
+                <section class="font-size-m padding-sm margin-m f-family-sans ">Change Password</section>
+                <div class="mb-3 margin-m">
+                    <label class="form-label f-family-sans" for="crnt_password">Current Password</label>
+                    <input class="form-control w-auto" type="password"  id="crnt_password" name="crnt_password" placeholder="password" required>
+                </div>
+                <div class="mb-3 margin-m">
+                    <label class="form-label f-family-sans" for="new_password">New Password</label>
+                    <input class="form-control w-auto" type="password"  id="new_password" name="new_password" placeholder="password" required>
+                </div>
+                <div class="mb-3 margin-m">
+                    <label class="form-label f-family-sans" for="confirmation">Confirm Password</label>
+                    <input class="form-control w-auto" type="password"  id="confirmation" name="confirmation" placeholder="password" required>
+                </div>
+                <div class="margin-m mb-3">
+                    <button class="btn btn-primary mt-m btn-f-family" type="submit">Change Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    
+
+    <script src="/static/theme.js"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block main %}
+
+    <h1 class="f-size-l f-family-sans margin-m text-center color-header border-bottom-blue">Tables</h1>
+
+    <!-- form to add tables -->
+    <form id="addTableForm" action="">
+        <div class="margin-m d-flex flex-row gap-sm" >
+            <input class="form-control w-auto" type="number" name="table_number" id="table_number" placeholder="Table Number">
+            <button class="btn btn-primary " type="submit">+</button>
+        </div>
+    </form>
+
+    <!-- display the inserted tables -->
+     <div class="d-flex margin-m mt-l padding-xsm tables border align-center justify-center wrap">
+        <ul class="d-flex padding-xsm gap-sm wrap" id="table-list">
+            {% for table in tables %}
+            <div class="my-border wrap d-flex font-size-m padding-17 {% if table.orders %} with-order {% else %} available {% endif %}">
+                <li class="" id="table-{{ table.id }}">
+                    <a class="my-border padding-8 {% if table.orders %} with-order {% else %} available {% endif %}" href="/order/{{ table.id }}">{{ table.table_number }}</a>
+                </li>
+            </div> 
+            {% endfor %}
+        </ul>
+     </div>
+    
+
+    
+    <script src="/static/addTable.js"></script>
+{% endblock %}

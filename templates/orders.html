@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<section class="f-size-l f-family-sans margin-m text-center color-header border-bottom-blue">Order for table {{table.table_number}}</section>
+
+<!-- Display all the products like buttons so we can add them to our order -->
+<div class="padding-xsm margin-m w-300 wrap gap-sm">    
+        {% for product in products %}
+            <button class="add btn-f-family btn-f-size-sm btn margin-xsm" data-id="{{product.id}}" data-name="{{product.p_name}}" data-price="{{product.price}}">
+                {{product.p_name}}</button>
+        {% endfor %}
+</div>
+
+<!-- Display the added products, if previous order exist display these products too  -->
+<div class="margin-m padding-xsm">
+    <div class="min-height-l">
+        <ul class="list-group list-style-none" id="order-list"></ul>
+        {% if exists %}
+            {% for item in exists.items %}
+                <li class="list-group-item ">
+                    {{ item.product.p_name}} - {{ item.qty}}
+                </li>
+            {% endfor %}
+        {% endif %}
+    </div>
+        {% if exists %}
+            <section class="bold-m font-size-m f-family-sans mt-sm">Total: {{ total_amount }}$</section>
+        {% endif %}
+    
+    <button class="btn btn-primary btn-f-family btn-f-size-l mt-l padding-m" type="submit" id="submitOrderbtn">Submit</button>
+    {% if exists %}
+        <button class="btn btn-danger mt-l padding-m btn-f-family btn-f-size-l" type="submit" id="close-table">Close Table</button>
+    {% endif %}
+</div>
+
+
+<script>
+    var tableId = "{{ table.id }}"; 
+    tableId = parseInt(tableId);     
+</script>
+
+
+
+
+
+<script src="/static/orders.js"></script>
+{% endblock %}

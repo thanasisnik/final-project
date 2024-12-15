@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+<div class="container-fluid px-4">
+    <section class="f-size-l f-family-sans margin-m text-center color-header border-bottom-blue">Sales Statistics</section>
+    
+    <div class="row">
+        <!-- Table Section -->
+        <div class="col-12 col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body overflow-auto" style="max-height: 600px;">
+                    <table class="table table-striped">
+                        <thead class="thead-light position-sticky top-0">
+                            <tr>
+                                <th>Product Name</th>
+                                <th class="text-end">Quantity Sold</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for product in products %}
+                            <tr>
+                                <td>{{ product.name }}</td>
+                                <td class="text-end">{{ product.qty }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="col-12 col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <canvas id="salesChart" class="w-100" style="height: 500px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include Chart.js from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Pass products data from Jinja2 template
+        const productData = JSON.parse('{{ products | tojson | safe }}');
+        
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: productData.map(item => item.name),
+                datasets: [{
+                    label: 'Quantity Sold',
+                    data: productData.map(item => item.qty),
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(153, 102, 255, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Product Sales'
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Quantity Sold'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            rotation: 45,
+                            autoSkip: true,
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+{% endblock %}
