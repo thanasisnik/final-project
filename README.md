@@ -39,3 +39,31 @@ Before your begin, ensure that you have the following installed on your machine:
 2. **Navigate to the project folder**
     ```bash
     cd final-project
+
+3. **Install the depedencies**
+    ```bash
+    pip install -r requirements.txt
+
+4. **Optional** Set up a virtual environment to manage project depedencies. To create and activate a virtual environment run:
+    -On Windows:
+    ```bash
+    python -m venv venv
+    .\venv\Scripts\activate```
+
+    -On Linux/macOS:
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate```
+
+5. **Run the application**
+    - On windows:
+    ```bash
+    set FLASK_APP=app.py
+    
+    - On Linux/macOs
+    ```bash
+    export FLASK_APP=app.py
+
+    - Run the Flask app:
+    ```bash
+    flask run
