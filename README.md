@@ -1,4 +1,6 @@
 # final-project
+#### Video Demo:  <URL HERE>
+#### Description:
 This repository contains a web application designed to help users efficiently manage orders remotely for businesses such as restaurants, coffee shops, and similar establishments. The application provides a simple interface for recording, editing, and closing orders in real time, improving operational efficiency and remote communication.
 
 ## Features
