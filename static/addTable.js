@@ -1,3 +1,6 @@
+// A part of code was created with the help of AI and it handles the form submission
+// its logic was fully understood first
+
 document.getElementById("addTableForm").addEventListener("submit", function(event) {
     event.preventDefault(); //prevent the default form submit
     
