@@ -24,12 +24,35 @@ document.getElementById("addTableForm").addEventListener("submit", function(even
 
             // //we clear the insert field
             // document.getElementById("table_number").value= "";
+                // var newTable = document.createElement("li");
+                
+                // newTable.classList.add("available"); //default
+                // newTable.id = `table-${response.table_number}`;
+                // newTable.innerHTML = `<a class="my-border padding-xsm" href="/order/${response.table_number}">Table #${table_number}</a>`;
+                // document.getElementById("table-list").appendChild(newTable);
+                
+                // console.log(newTable.className);
+                 // Create the entire structure, including the parent div
+                 //Here becouse my previus attempts doesnt loaded my css instantly i get the AI help and now it works like i wanted
+                 // difference from previus code is just adding and the div and not just the li something simple.
+            var newTableContainer = document.createElement("div");
+            newTableContainer.classList.add("my-border", "wrap", "d-flex", "font-size-m", "padding-17", "available");
+            
             var newTable = document.createElement("li");
-            newTable.className = "available"; //default
             newTable.id = `table-${response.table_number}`;
-            newTable.innerHTML = `<a class="my-border padding-xsm" href="/order/${response.table_number}">Table #${table_number}</a>`;
-            document.getElementById("table-list").appendChild(newTable);
-            console.log(newTable.className);
+            
+            var newTableLink = document.createElement("a");
+            newTableLink.classList.add("my-border", "padding-8", "available");
+            newTableLink.href = `/order/${response.table_number}`;
+            newTableLink.textContent = `${table_number}`;
+            
+            newTable.appendChild(newTableLink);
+            newTableContainer.appendChild(newTable);
+            
+            document.getElementById("table-list").appendChild(newTableContainer);
+            
+            // Clear the input field
+            document.getElementById("table_number").value = "";
         }
     };
     xhr.send("table_number=" + encodeURIComponent(table_number));  // Using encodeURIComponent for safety

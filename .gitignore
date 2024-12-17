@@ -15,3 +15,5 @@ __pycache__.
 #editor
 .idea/
 .vscode/ 
+
+migrations/

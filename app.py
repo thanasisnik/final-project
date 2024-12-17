@@ -4,6 +4,7 @@ from config import Config
 from models import db, OrderItems
 from routes import register_routes
 from werkzeug.security import check_password_hash, generate_password_hash
+from flask_migrate import Migrate
 
 #make a new Flask app
 app = Flask(__name__)
@@ -13,6 +14,8 @@ app.config.from_object(Config)
 
 #Initialize sqlalchemy from models to Flask, init_app connect them
 db.init_app(app)
+
+migrate = Migrate(app, db)
 
 Session(app)
 
